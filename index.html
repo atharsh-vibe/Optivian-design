@@ -75,11 +75,25 @@
       .grid-4 { display:grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-top: 24px; }
       .mini { padding: 16px; min-height: 110px; }
 
-      .pricing { display:grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 24px; }
-      .price-card { padding: 22px; }
-      .price { font-size: 52px; margin: 8px 0 10px; }
-      .pro { border-color: #d8b93a; box-shadow: inset 0 0 0 1px rgba(248,211,59,.2); }
-      .list { color:#c7ccd7; line-height: 1.9; font-size: 14px; padding-left: 20px; }
+      .pricing-grid { margin-top:24px; display:grid; grid-template-columns: repeat(4,minmax(0,1fr)); border:1px solid #252c3e; }
+      .tier { border-right:1px solid #252c3e; background:#070a12; }
+      .tier:last-child { border-right:0; }
+      .tier-head { padding:20px 16px 14px; font-size:40px; letter-spacing:-.02em; }
+      .tier.hobby .tier-head { background:#0c3a83; }
+      .tier.pro .tier-head { background:#194f03; }
+      .tier.scale .tier-head { background:#5b0ea4; }
+      .tier.enterprise .tier-head { background:#2a2d34; }
+      .tier-body { padding:16px; }
+      .tier-sub { color:#d2d8e3; min-height:60px; }
+      .tier-price { font-size:56px; margin:20px 0 14px; letter-spacing:-.02em; }
+      .tier-price small { font-size:28px; }
+      .tier-price span { font-size:28px; color:#d6dbe5; }
+      .tier-btn { width:100%; border:0; padding:12px; border-radius:0; font-size:30px; text-align:left; }
+      .tier.hobby .tier-btn { background:#6ec4ff; color:#03111f; }
+      .tier.pro .tier-btn { background:#67ef0f; color:#051205; }
+      .tier.scale .tier-btn { background:#b08de9; color:#170329; }
+      .tier.enterprise .tier-btn { background:#bcbcbc; color:#131313; }
+      .tier-list { margin:18px 0 0; padding:0; list-style:none; color:#edf2fb; line-height:1.75; }
 
       .quotes { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin-top:20px; }
       .quote { padding: 20px; }
@@ -115,7 +129,7 @@
       @keyframes reveal { from { opacity:0; transform: translateY(16px);} to { opacity:1; transform: translateY(0);} }
       @media (max-width: 1000px) {
         .hero { grid-template-columns: 1fr; }
-        .grid-4, .pricing, .quotes, .footer-grid, .workflow-grid { grid-template-columns: 1fr; }
+        .grid-4, .quotes, .footer-grid, .workflow-grid, .pricing-grid { grid-template-columns: 1fr; }
         .field { grid-template-columns: 1fr; }
       }
     </style>
@@ -205,11 +219,44 @@ Done in 2.1s • rollback armed for 15m</pre>
       <section class="section">
         <div class="container">
           <div class="kicker">Pricing</div>
-          <h2 class="section-title">Simple plans for growing teams.</h2>
-          <div class="pricing">
-            <div class="card price-card"><h3>Hobby</h3><div class="price">₹0</div><ul class="list"><li>1 project</li><li>512 MB shared runtime</li><li>Community support</li></ul><button class="btn" style="width:100%">Start free</button></div>
-            <div class="card price-card pro"><h3>Pro</h3><div class="price">₹990</div><ul class="list"><li>Unlimited projects</li><li>99.95% SLA</li><li>Priority queue + autoscaling</li></ul><button class="btn primary" style="width:100%">Start Pro free for 14 days</button></div>
-            <div class="card price-card"><h3>Team</h3><div class="price">₹4,990</div><ul class="list"><li>SSO, audit logs</li><li>Dedicated build pool</li><li>1h SLA support</li></ul><button class="btn" style="width:100%">Talk to us</button></div>
+          <h2 class="section-title">Plans built for every deployment stage.</h2>
+          <div class="pricing-grid">
+            <article class="tier hobby">
+              <div class="tier-head">Hobby</div>
+              <div class="tier-body">
+                <p class="tier-sub">For building personal projects and prototypes.</p>
+                <div class="tier-price"><small>$</small>0<span>/mo + compute</span></div>
+                <button class="tier-btn">Deploy for free ➜</button>
+                <ul class="tier-list"><li>Connect your repo, and go</li><li>Deploy up to 25 services</li><li>5 GB of bandwidth included</li><li>Single-service previews</li><li>Global regions & CDN</li><li>Custom domains</li></ul>
+              </div>
+            </article>
+            <article class="tier pro">
+              <div class="tier-head">Pro</div>
+              <div class="tier-body">
+                <p class="tier-sub">For deploying production-grade apps and agents.</p>
+                <div class="tier-price"><small>$</small>25<span>/mo + compute</span></div>
+                <button class="tier-btn">Start with Pro ➜</button>
+                <ul class="tier-list"><li>All Hobby features, plus:</li><li>No service maximum</li><li>25 GB bandwidth included</li><li>Full-stack previews</li><li>Horizontal autoscaling</li><li>Isolated environments</li></ul>
+              </div>
+            </article>
+            <article class="tier scale">
+              <div class="tier-head">Scale</div>
+              <div class="tier-body">
+                <p class="tier-sub">For teams that need advanced governance and compliance.</p>
+                <div class="tier-price"><small>$</small>499<span>/mo + compute</span></div>
+                <button class="tier-btn">Start with Scale ➜</button>
+                <ul class="tier-list"><li>All Pro features, plus:</li><li>Multiple workspaces</li><li>1 TB bandwidth included</li><li>Extended metrics retention</li><li>SAML SSO & SCIM</li><li>Organization audit logs</li></ul>
+              </div>
+            </article>
+            <article class="tier enterprise">
+              <div class="tier-head">Enterprise</div>
+              <div class="tier-body">
+                <p class="tier-sub">For teams that need dedicated support and uptime SLAs.</p>
+                <div class="tier-price">Custom pricing</div>
+                <button class="tier-btn">Get in touch ➜</button>
+                <ul class="tier-list"><li>All Scale features, plus:</li><li>Contractual uptime SLAs</li><li>Premium support</li><li>Support response SLAs</li><li>Technical account manager</li><li>Private Slack channel</li></ul>
+              </div>
+            </article>
           </div>
         </div>
       </section>
