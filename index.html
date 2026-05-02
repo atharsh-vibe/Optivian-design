@@ -91,70 +91,32 @@
 
 
 
-      .agent-stage {
-        position: relative;
-        margin-top: 26px;
-        min-height: 560px;
-        border-radius: 22px;
-        overflow: hidden;
-        border: 1px solid #2a3042;
-        background:
-          linear-gradient(rgba(8,10,16,.3), rgba(8,10,16,.4)),
-          radial-gradient(circle at 20% 20%, #25354f 0%, transparent 55%),
-          linear-gradient(120deg, #233142 0%, #374b61 36%, #202b37 70%, #15202b 100%);
-      }
-      .agent-stage::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: repeating-linear-gradient(90deg, transparent 0 35px, rgba(255,255,255,.04) 35px 36px);
-        opacity: .1;
-        pointer-events: none;
-      }
-      .insight-panel {
-        position: absolute;
-        right: clamp(24px, 4vw, 56px);
-        top: 50%;
-        transform: translateY(-50%);
-        width: min(520px, 90%);
-        background: rgba(245, 247, 252, .96);
-        border-radius: 28px;
-        color: #0f172a;
-        padding: 34px 34px 30px;
-        box-shadow: 0 22px 50px rgba(0,0,0,.35);
-        animation: floatPanel 5s ease-in-out infinite;
-      }
-      .insight-panel h3 { margin: 4px 0 18px; font-size: clamp(30px, 4vw, 44px); line-height: 1.06; letter-spacing:-.02em; }
-      .insight-panel p { margin:0; color:#334155; line-height:1.55; }
-      .widget-grid { margin-top: 22px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
-      .widget {
-        background:#ffffff; border:1px solid #d8deea; border-radius:14px; padding:12px;
-        font-size:13px; color:#0f172a; animation: pulseWidget 3.8s ease-in-out infinite;
-      }
-      .widget small { color:#64748b; display:block; margin-bottom:4px; }
-      .widget:nth-child(2){ animation-delay:.5s; }
-      .widget:nth-child(3){ animation-delay:1s; }
-      .widget:nth-child(4){ animation-delay:1.5s; }
-      .agent-chip {
-        position:absolute; left: 24px; background: rgba(12,16,26,.82); border:1px solid #3b4660; color:#d7e2f0;
-        border-radius: 12px; padding: 10px 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-        font-size: 13px; letter-spacing:.01em; backdrop-filter: blur(4px); animation: drift 8s ease-in-out infinite;
-      }
-      .agent-chip.one { top: 18%; }
-      .agent-chip.two { top: 35%; left: 14%; animation-delay: 1.2s; }
-      .agent-chip.three { top: 56%; left: 10%; animation-delay: 2.1s; }
-      .agent-chip.four { top: 74%; left: 19%; animation-delay: .6s; }
-
-      @keyframes floatPanel { 0%,100% { transform: translateY(-50%) translateX(0);} 50% { transform: translateY(calc(-50% - 8px)) translateX(-4px);} }
-      @keyframes drift { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-8px);} }
-      @keyframes pulseWidget { 0%,100% { border-color:#d8deea; box-shadow:none;} 50% { border-color:#b6c2d8; box-shadow:0 0 0 1px rgba(37,99,235,.18);} }
-
+      .workflow-grid { display:grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px; margin-top: 28px; }
+      .flow-step { position:relative; }
+      .step-no { display:inline-grid; place-items:center; width:34px; height:34px; border-radius:8px; background:#6119d1; font-weight:700; margin-bottom:16px; }
+      .flow-step h3 { font-size:48px; line-height:1.05; letter-spacing:-.03em; margin:0 0 28px; }
+      .flow-step h4 { font-size:47px; margin:0 0 8px; }
+      .flow-step .title { font-size:48px; margin:0 0 10px; letter-spacing:-.02em; }
+      .flow-step p { color:#c8ced9; margin:0 0 22px; max-width: 440px; }
+      .ui-card { border:1px solid #2a3042; border-radius: 10px; background: linear-gradient(180deg,#131722,#0d1018); overflow:hidden; }
+      .service-item { padding:14px 16px; border-top:1px solid #20283a; display:flex; justify-content:space-between; color:#d8deea; }
+      .service-item.active { background: linear-gradient(90deg,#7bc586,#63c98f); color:#0e141f; font-weight:600; }
+      .service-item.dim { color:#667085; }
+      .form-grid { padding:16px; display:grid; gap:10px; }
+      .field { display:grid; grid-template-columns: 130px 1fr; align-items:center; gap:10px; color:#bcc3d1; }
+      .input { border:1px solid #333b52; background:#202633; padding:10px 12px; border-radius:4px; color:#dfe5f2; }
+      .deploy-log { margin-top:12px; border:1px solid #2a3042; border-radius:8px; padding:12px; font-family:ui-monospace, monospace; color:#95a3b9; }
+      .deploy-log b { color:#35e393; }
+      .event-list .row { padding:14px 16px; border-top:1px solid #22293b; display:flex; gap:10px; align-items:center; }
+      .dot { width:10px; height:10px; border-radius:999px; background:#56e596; box-shadow:0 0 0 6px rgba(86,229,150,.12); }
+      .flow-step, .ui-card { animation: reveal .8s ease both; }
+      .flow-step:nth-child(2), .flow-step:nth-child(2) .ui-card { animation-delay:.15s; }
+      .flow-step:nth-child(3), .flow-step:nth-child(3) .ui-card { animation-delay:.3s; }
+      @keyframes reveal { from { opacity:0; transform: translateY(16px);} to { opacity:1; transform: translateY(0);} }
       @media (max-width: 1000px) {
         .hero { grid-template-columns: 1fr; }
-        .grid-4, .pricing, .quotes, .footer-grid { grid-template-columns: 1fr; }
-        .agent-stage { min-height: 720px; }
-        .insight-panel { left: 50%; right: auto; transform: translate(-50%, -50%); }
-        .agent-chip { left: 16px !important; right: 16px; width: auto; }
+        .grid-4, .pricing, .quotes, .footer-grid, .workflow-grid { grid-template-columns: 1fr; }
+        .field { grid-template-columns: 1fr; }
       }
     </style>
   </head>
@@ -197,23 +159,45 @@ Done in 2.1s • rollback armed for 15m</pre>
       <section class="section">
         <div class="container">
           <div class="kicker">Watch the agent work</div>
-          <h2 class="section-title">Four agents. One platform. Zero pings.</h2>
-          <div class="agent-stage">
-            <div class="agent-chip one">reviewer ▶ reviewing PRs • 0 CVEs</div>
-            <div class="agent-chip two">healer ▶ rollback armed • auto-recover 41s</div>
-            <div class="agent-chip three">security ▶ blocked stale dependency chain</div>
-            <div class="agent-chip four">optimizer ▶ suggest bump replicas on weekdays</div>
-
-            <article class="insight-panel">
-              <h3>Code widgets that feel alive.</h3>
-              <p>Agents continuously review pull requests, patch risky dependencies, and rollback unstable deploys before users notice. All signals stay aligned with your current deployment workflow.</p>
-              <div class="widget-grid">
-                <div class="widget"><small>PR Review</small>38 files scanned · LGTM after threat checks</div>
-                <div class="widget"><small>Rollback guard</small>Last incident auto-contained in 2.1s</div>
-                <div class="widget"><small>Runtime healing</small>500 errors dropped 95% after live patch</div>
-                <div class="widget"><small>Capacity signal</small>Traffic trend predicts +2 replicas at 9am</div>
+          <h2 class="section-title">Click, click, done.</h2>
+          <div class="workflow-grid">
+            <div class="flow-step">
+              <span class="step-no">1</span>
+              <div class="title">Select a service</div>
+              <p>Choose what you need to run your apps, APIs, agent logic, databases, cron jobs, and background workers.</p>
+              <div class="ui-card">
+                <div class="service-item">＋ New service</div>
+                <div class="service-item">Static site <span>✓</span></div>
+                <div class="service-item active">Web service</div>
+                <div class="service-item">Private service <span>✓</span></div>
+                <div class="service-item">Workflow <span>✓</span></div>
+                <div class="service-item">Background Worker</div>
+                <div class="service-item">Cron Job <span>✓</span></div>
+                <div class="service-item dim">Postgres</div>
               </div>
-            </article>
+            </div>
+            <div class="flow-step">
+              <span class="step-no">2</span>
+              <div class="title">Deploy your code</div>
+              <p>Connect your repo once. Optivian maps the right runtime, build command, and start profile automatically.</p>
+              <div class="ui-card form-grid">
+                <div class="field"><span>Branch</span><div class="input">main</div></div>
+                <div class="field"><span>Build Cmd</span><div class="input">npm build</div></div>
+                <div class="field"><span>Start Cmd</span><div class="input">npm start</div></div>
+                <div class="field"><span>Auto Deploy</span><div class="input">On Commit</div></div>
+              </div>
+              <div class="deploy-log">✓ Built in 2.74s<br/>⇒ Uploading build...<br/><b>==&gt; Your site is live</b></div>
+            </div>
+            <div class="flow-step">
+              <span class="step-no">3</span>
+              <div class="title">Optivian does the rest</div>
+              <p>Instant networking, previews, rollbacks, scaling, and monitoring — handled continuously by agents.</p>
+              <div class="ui-card event-list">
+                <div class="row"><span class="dot"></span>Automatic deploy live: Final tweaks</div>
+                <div class="row"><span class="dot"></span>Automatic deploy live: Fix payment timeout</div>
+                <div class="row"><span class="dot"></span>Manual deploy live</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
