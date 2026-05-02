@@ -120,18 +120,28 @@
       .tier-list { margin:18px 0 0; padding:0; list-style:none; color:#edf2fb; line-height:1.75; }
 
 
-      .flanks { margin-top: 28px; border:1px solid #1d2740; border-radius: 18px; padding: 34px 26px; background: radial-gradient(circle at 50% 48%, rgba(16,113,128,.25), transparent 38%), #050913; }
+      .flanks { margin-top: 18px; border:1px solid #1d2d47; border-radius: 24px; padding: 34px 26px; background: radial-gradient(circle at 50% 56%, rgba(21,86,120,.25), transparent 42%), #040915; }
       .flanks-head { text-align:center; margin-bottom: 26px; }
-      .flanks-head h3 { margin:8px 0 0; font-size: clamp(34px, 4.2vw, 52px); color:#bde4ff; }
+      .flanks-head h3 { margin:8px 0 0; font-size: clamp(38px, 4.8vw, 72px); color:#b9d8f5; }
       .flanks-layout { display:grid; grid-template-columns: 1fr 360px 1fr; gap: 16px; align-items:center; }
-      .flank-title { font-size:42px; margin: 0 0 18px; }
+      .flank-title { font-size:34px; margin: 0 0 16px; color:#e8edf4; }
       .tag-list { display:flex; flex-wrap:wrap; gap:10px; }
-      .tag-pill { border:1px solid #26405f; background: #0d1d34; color:#d4def0; border-radius: 12px; padding:9px 12px; font-size:22px; }
-      .tag-pill.green { border-color:#1f5c4f; background:#0d3027; }
-      .core-ring { width: 340px; height:340px; border-radius:999px; margin: 0 auto; display:grid; place-items:center; border:1px solid #2489a0; box-shadow: 0 0 0 30px rgba(15,53,87,.25), 0 0 0 62px rgba(7,34,59,.23), 0 0 0 96px rgba(7,27,45,.2); }
-      .core-inner { width: 150px; height:150px; border-radius:999px; display:grid; place-items:center; background: radial-gradient(circle at 40% 30%, #0c2f4e, #061422); border:1px solid #00c8a8; font-size:46px; color:#6fc9ff; }
+      .tag-pill { border:1px solid #28456b; background: #0f223d; color:#d4def0; border-radius: 18px; padding:11px 18px; font-size:18px; }
+      .tag-pill.green { border-color:#2d6652; background:#153b31; }
+      .core-ring { width: 420px; height:420px; border-radius:999px; margin: 0 auto; display:grid; place-items:center; border:1px solid #3a9ac4; box-shadow: 0 0 0 44px rgba(18,58,92,.33), 0 0 0 84px rgba(10,41,70,.25), 0 0 0 126px rgba(7,27,45,.2); }
+      .core-inner { width: 170px; height:170px; border-radius:999px; display:grid; place-items:center; background: radial-gradient(circle at 40% 30%, #173862, #081728); border:1px solid #56d7c9; font-size:52px; color:#7cc8ff; }
 
       
+      
+      .ship-grid { margin-top: 18px; display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .ship-card { border:1px solid #252d3f; border-radius: 12px; background:#0c0f17; padding:16px; }
+      .ship-card .topline { display:flex; justify-content:space-between; align-items:center; color:#8f99a9; font-size:12px; margin-bottom:14px; }
+      .ship-log { font-family: ui-monospace, monospace; color:#dce3ef; line-height:1.9; font-size:16px; }
+      .ship-meta { display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .meta-box { border:1px solid #363e53; border-radius:8px; padding:10px 12px; background:#22252f; }
+      .meta-label { font-size:11px; letter-spacing:.14em; color:#8b94a3; text-transform:uppercase; }
+      .meta-val { font-size:15px; margin-top:6px; color:#f1f4f8; }
+
       .scale-intro { text-align:center; margin-top: 6px; }
       .scale-kicker { color:#41b5c4; letter-spacing:.22em; font-size:12px; text-transform:uppercase; }
       .scale-intro h3 { font-size: clamp(34px,4vw,50px); margin: 10px 0 8px; }
@@ -184,7 +194,7 @@
       @keyframes reveal { from { opacity:0; transform: translateY(16px);} to { opacity:1; transform: translateY(0);} }
       @media (max-width: 1000px) {
         
-        .grid-4, .footer-grid, .workflow-grid, .pricing-grid, .flanks-layout { grid-template-columns: 1fr; }
+        .grid-4, .footer-grid, .workflow-grid, .pricing-grid, .flanks-layout, .ship-grid { grid-template-columns: 1fr; }
         .t-card { grid-template-columns: 1fr; }
         .t-brand { grid-template-rows: auto auto; }
         .t-text { font-size: 18px; }
@@ -284,6 +294,28 @@ agent status: <span class="green">active</span></pre></div>
                 <div class="row"><span class="dot"></span>Manual deploy live</div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="ship-grid">
+            <article class="ship-card">
+              <div class="topline"><span>● building · 14s elapsed</span><span>dpl_8f3e2c</span></div>
+              <div class="ship-log">✦ Generating Dockerfile · Bun 1.1<br/>✦ Provisioning Postgres · 10 GB<br/>✦ Wiring Razorpay webhook secret<br/>✦ Building image · 142 MB<br/>✦ Live · webhook.optv.run/abc12</div>
+            </article>
+            <article class="ship-card">
+              <div class="topline"><span>WHAT YOU SHIP WITH ONE PROMPT</span></div>
+              <div class="ship-meta">
+                <div class="meta-box"><div class="meta-label">Container</div><div class="meta-val">multi-stage</div></div>
+                <div class="meta-box"><div class="meta-label">Database</div><div class="meta-val">managed PG</div></div>
+                <div class="meta-box"><div class="meta-label">Domain + SSL</div><div class="meta-val">auto</div></div>
+                <div class="meta-box"><div class="meta-label">Healthcheck</div><div class="meta-val">/healthz</div></div>
+                <div class="meta-box"><div class="meta-label">Healing Agent</div><div class="meta-val">on</div></div>
+                <div class="meta-box"><div class="meta-label">GST Invoice</div><div class="meta-val">monthly</div></div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
