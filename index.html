@@ -131,16 +131,27 @@
       .core-ring { width: 340px; height:340px; border-radius:999px; margin: 0 auto; display:grid; place-items:center; border:1px solid #2489a0; box-shadow: 0 0 0 30px rgba(15,53,87,.25), 0 0 0 62px rgba(7,34,59,.23), 0 0 0 96px rgba(7,27,45,.2); }
       .core-inner { width: 150px; height:150px; border-radius:999px; display:grid; place-items:center; background: radial-gradient(circle at 40% 30%, #0c2f4e, #061422); border:1px solid #00c8a8; font-size:46px; color:#6fc9ff; }
 
+      
+      .scale-intro { text-align:center; margin-top: 6px; }
+      .scale-kicker { color:#41b5c4; letter-spacing:.22em; font-size:12px; text-transform:uppercase; }
+      .scale-intro h3 { font-size: clamp(34px,4vw,50px); margin: 10px 0 8px; }
+      .scale-intro p { color:#b4c4d8; max-width: 780px; margin:0 auto 18px; }
+      .scale-scroll { overflow-x:auto; padding-bottom:8px; }
+      .scale-row { display:flex; gap:14px; min-width:max-content; }
+      .metric-card { width:250px; min-height:170px; border:1px solid #22334a; border-radius:10px; padding:16px; background:linear-gradient(160deg,#0a1322,#080f1a); }
+      .metric-value { font-size:48px; margin:0 0 6px; }
+      .metric-label { color:#a9bacf; font-size:17px; }
+
       .testimonials { display:grid; grid-template-columns: 1fr; gap:16px; margin-top:20px; }
       .t-card { border:1px solid #24415a; border-radius:10px; overflow:hidden; background:#050b15; display:grid; grid-template-columns: 300px 1fr; }
       .t-brand { border-right:1px solid #1d334a; background: radial-gradient(circle at 10% 20%, rgba(45,211,191,.16), transparent 40%), #07101e; display:grid; grid-template-rows:1fr 1fr; }
-      .t-logo, .t-product { display:grid; place-items:center; color:#9fb7d4; font-size:44px; letter-spacing:.06em; font-family: "Bricolage Grotesque", sans-serif; }
+      .t-logo, .t-product { display:grid; place-items:center; color:#9fb7d4; font-size:26px; letter-spacing:.04em; font-family: "Bricolage Grotesque", sans-serif; }
       .t-logo { border-bottom:1px solid #1d334a; }
       .t-body { padding:24px 26px; }
       .t-badge { display:inline-block; border:1px solid #2b5669; border-radius:999px; padding:8px 12px; color:#a9d3ea; font-size:14px; margin-bottom:14px; }
-      .t-text { font-size:37px; line-height:1.45; color:#d9e5f7; margin:0 0 18px; }
-      .t-name { font-size:32px; color:#f3f8ff; margin:0; }
-      .t-role { color:#96aac2; margin-top:4px; font-size:21px; }
+      .t-text { font-size:20px; line-height:1.55; color:#d9e5f7; margin:0 0 16px; }
+      .t-name { font-size:20px; color:#f3f8ff; margin:0; }
+      .t-role { color:#96aac2; margin-top:4px; font-size:15px; }
 
       footer { border-top: 1px solid #1b2131; padding: 42px 0; color: #8f97a5; }
       .footer-grid { display:grid; grid-template-columns: 1.2fr repeat(5,1fr); gap: 22px; }
@@ -176,7 +187,7 @@
         .grid-4, .footer-grid, .workflow-grid, .pricing-grid, .flanks-layout { grid-template-columns: 1fr; }
         .t-card { grid-template-columns: 1fr; }
         .t-brand { grid-template-rows: auto auto; }
-        .t-text { font-size: 24px; }
+        .t-text { font-size: 18px; }
         .t-name { font-size: 24px; }
         .t-role { font-size: 17px; }
         .core-ring { width:240px; height:240px; box-shadow: 0 0 0 20px rgba(15,53,87,.25), 0 0 0 40px rgba(7,34,59,.23); }
@@ -354,6 +365,25 @@ agent status: <span class="green">active</span></pre></div>
                 <ul class="tier-list"><li>All Scale features, plus:</li><li>Contractual uptime SLAs</li><li>Premium support</li><li>Support response SLAs</li><li>Technical account manager</li><li>Private Slack channel</li></ul>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="scale-intro">
+            <div class="scale-kicker">Built for scale</div>
+            <h3>You’re in good company</h3>
+            <p>Since 2019, teams trust Optivian to run everything from enterprise APIs to high-scale agent workloads — from one service to thousands.</p>
+          </div>
+          <div class="scale-scroll">
+            <div class="scale-row">
+              <article class="metric-card"><h4 class="metric-value">Millions</h4><div class="metric-label">of container starts</div></article>
+              <article class="metric-card"><h4 class="metric-value">130B+</h4><div class="metric-label">requests processed</div></article>
+              <article class="metric-card"><h4 class="metric-value">$24M+</h4><div class="metric-label">saved via automation</div></article>
+              <article class="metric-card"><h4 class="metric-value">70K+</h4><div class="metric-label">developers in production</div></article>
+              <article class="metric-card"><h4 class="metric-value">330+</h4><div class="metric-label">availability zones covered</div></article>
+            </div>
           </div>
         </div>
       </section>
