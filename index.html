@@ -73,7 +73,7 @@
       .hero-topnav { display:grid; grid-template-columns: repeat(5,1fr); gap: 12px; margin-bottom: 20px; color:#2dd3bf; font-family: ui-monospace, monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; }
       .tag { display:inline-block; border:1px solid #21506f; color:#b0d7f7; padding:10px 18px; border-radius:999px; font-size:14px; background:rgba(5,18,32,.78); }
       h1 { font-size: clamp(40px, 6.3vw, 74px); line-height: 1.02; margin: 18px auto 16px; letter-spacing: -0.028em; max-width: 840px; }
-      .muted { color: #a7c0d6; font-size: clamp(19px, 2.3vw, 30px); max-width: 820px; line-height: 1.35; margin: 0 auto; }
+      .muted { color: #a7c0d6; font-size: clamp(17px, 1.7vw, 23px); max-width: 760px; line-height: 1.5; margin: 0 auto; }
       .hero-actions { margin-top: 32px; display:flex; justify-content:center; gap: 16px; flex-wrap: wrap; }
       .hero-panels { margin-top: 46px; display:grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
       .hero-panel { border:1px solid #20435b; border-radius: 10px; background: linear-gradient(180deg,#0b1321,#0a111b); overflow:hidden; text-align:left; }
@@ -119,6 +119,18 @@
       .tier.enterprise .tier-btn { background:#bcbcbc; color:#131313; }
       .tier-list { margin:18px 0 0; padding:0; list-style:none; color:#edf2fb; line-height:1.75; }
 
+
+      .flanks { margin-top: 28px; border:1px solid #1d2740; border-radius: 18px; padding: 34px 26px; background: radial-gradient(circle at 50% 48%, rgba(16,113,128,.25), transparent 38%), #050913; }
+      .flanks-head { text-align:center; margin-bottom: 26px; }
+      .flanks-head h3 { margin:8px 0 0; font-size: clamp(34px, 4.2vw, 52px); color:#bde4ff; }
+      .flanks-layout { display:grid; grid-template-columns: 1fr 360px 1fr; gap: 16px; align-items:center; }
+      .flank-title { font-size:42px; margin: 0 0 18px; }
+      .tag-list { display:flex; flex-wrap:wrap; gap:10px; }
+      .tag-pill { border:1px solid #26405f; background: #0d1d34; color:#d4def0; border-radius: 12px; padding:9px 12px; font-size:22px; }
+      .tag-pill.green { border-color:#1f5c4f; background:#0d3027; }
+      .core-ring { width: 340px; height:340px; border-radius:999px; margin: 0 auto; display:grid; place-items:center; border:1px solid #2489a0; box-shadow: 0 0 0 30px rgba(15,53,87,.25), 0 0 0 62px rgba(7,34,59,.23), 0 0 0 96px rgba(7,27,45,.2); }
+      .core-inner { width: 150px; height:150px; border-radius:999px; display:grid; place-items:center; background: radial-gradient(circle at 40% 30%, #0c2f4e, #061422); border:1px solid #00c8a8; font-size:46px; color:#6fc9ff; }
+
       .quotes { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin-top:20px; }
       .quote { padding: 20px; }
 
@@ -153,7 +165,10 @@
       @keyframes reveal { from { opacity:0; transform: translateY(16px);} to { opacity:1; transform: translateY(0);} }
       @media (max-width: 1000px) {
         
-        .grid-4, .quotes, .footer-grid, .workflow-grid, .pricing-grid { grid-template-columns: 1fr; }
+        .grid-4, .quotes, .footer-grid, .workflow-grid, .pricing-grid, .flanks-layout { grid-template-columns: 1fr; }
+        .core-ring { width:240px; height:240px; box-shadow: 0 0 0 20px rgba(15,53,87,.25), 0 0 0 40px rgba(7,34,59,.23); }
+        .flank-title { font-size:32px; }
+        .tag-pill { font-size:18px; }
                 .hero-topnav { grid-template-columns: repeat(2,1fr); }
         .muted { font-size: 24px; }
         .hero-panels { grid-template-columns: 1fr; }
@@ -243,6 +258,42 @@ agent status: <span class="green">active</span></pre></div>
                 <div class="row"><span class="dot"></span>Automatic deploy live: Final tweaks</div>
                 <div class="row"><span class="dot"></span>Automatic deploy live: Fix payment timeout</div>
                 <div class="row"><span class="dot"></span>Manual deploy live</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="kicker">Optivian coverage</div>
+          <div class="flanks">
+            <div class="flanks-head">
+              <h3>We’ve got you covered on all flanks.</h3>
+            </div>
+            <div class="flanks-layout">
+              <div>
+                <h4 class="flank-title">If you’re building with AI...</h4>
+                <div class="tag-list">
+                  <span class="tag-pill">Deploy and scale OSS models</span>
+                  <span class="tag-pill">Secure code execution</span>
+                  <span class="tag-pill">Long-running agent runtimes</span>
+                  <span class="tag-pill">Vector DB + notebook workflows</span>
+                  <span class="tag-pill">GPU autoscaling</span>
+                  <span class="tag-pill">Multi-cloud support</span>
+                </div>
+              </div>
+              <div class="core-ring"><div class="core-inner">◈</div></div>
+              <div>
+                <h4 class="flank-title">...you still need these.</h4>
+                <div class="tag-list">
+                  <span class="tag-pill green">Secrets & config management</span>
+                  <span class="tag-pill green">Deploy APIs, databases, and jobs</span>
+                  <span class="tag-pill green">Build and release pipelines</span>
+                  <span class="tag-pill green">Preview, staging, prod envs</span>
+                  <span class="tag-pill green">Continuous delivery + rollbacks</span>
+                  <span class="tag-pill green">Run in your VPC</span>
+                </div>
               </div>
             </div>
           </div>
