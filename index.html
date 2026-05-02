@@ -51,11 +51,30 @@
       }
       .btn.primary { background: var(--yellow); border-color: #e9c531; color: #141414; }
 
-      .hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: center; padding: 70px 0 84px; }
-      .tag { display:inline-block; border:1px solid #2a2f41; color:#cfd3dc; padding:7px 12px; border-radius:999px; font-size:12px; }
-      h1 { font-size: clamp(44px, 7vw, 76px); line-height: 0.98; margin: 18px 0; letter-spacing: -0.03em; }
-      .muted { color: var(--muted); font-size: 22px; max-width: 640px; line-height: 1.45; }
-      .hero-actions { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; }
+      .hero {
+        position: relative;
+        padding: 72px 0 78px;
+        border: 1px solid #1f2e44;
+        border-radius: 18px;
+        overflow: hidden;
+        background: radial-gradient(circle at 50% 65%, rgba(17,137,123,.35), transparent 45%), #050913;
+      }
+      .hero::before {
+        content:""; position:absolute; inset:0;
+        background: repeating-radial-gradient(circle at 50% 90%, rgba(27,182,163,.15) 0 1px, transparent 1px 90px);
+        opacity:.5; pointer-events:none;
+      }
+      .hero-wrap { position:relative; z-index:2; text-align:center; max-width: 940px; margin:0 auto; }
+      .hero-topnav { display:grid; grid-template-columns: repeat(5,1fr); gap: 12px; margin-bottom: 20px; color:#2dd3bf; font-family: ui-monospace, monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; }
+      .tag { display:inline-block; border:1px solid #21506f; color:#b0d7f7; padding:10px 18px; border-radius:999px; font-size:14px; background:rgba(5,18,32,.78); }
+      h1 { font-size: clamp(50px, 8vw, 96px); line-height: 0.95; margin: 18px auto; letter-spacing: -0.035em; max-width: 980px; }
+      .muted { color: #a7c0d6; font-size: 38px; max-width: 960px; line-height: 1.35; margin: 0 auto; }
+      .hero-actions { margin-top: 32px; display:flex; justify-content:center; gap: 16px; flex-wrap: wrap; }
+      .hero-panels { margin-top: 46px; display:grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+      .hero-panel { border:1px solid #20435b; border-radius: 10px; background: linear-gradient(180deg,#0b1321,#0a111b); overflow:hidden; text-align:left; }
+      .hero-panel .ph { padding:10px 12px; color:#72f9c7; font-weight:600; border-bottom:1px solid #1f3042; font-family: ui-monospace, monospace; }
+      .hero-panel pre { min-height:130px; font-size:12px; color:#88a8c4; }
+
 
       .terminal, .card {
         background: linear-gradient(180deg, #121726 0%, #0b0d14 100%);
@@ -128,8 +147,11 @@
       .flow-step:nth-child(3), .flow-step:nth-child(3) .ui-card { animation-delay:.3s; }
       @keyframes reveal { from { opacity:0; transform: translateY(16px);} to { opacity:1; transform: translateY(0);} }
       @media (max-width: 1000px) {
-        .hero { grid-template-columns: 1fr; }
+        
         .grid-4, .quotes, .footer-grid, .workflow-grid, .pricing-grid { grid-template-columns: 1fr; }
+                .hero-topnav { grid-template-columns: repeat(2,1fr); }
+        .muted { font-size: 24px; }
+        .hero-panels { grid-template-columns: 1fr; }
         .field { grid-template-columns: 1fr; }
       }
     </style>
@@ -150,23 +172,29 @@
 
     <main>
       <section class="container hero">
-        <div>
-          <span class="tag">Agentic Deployment • public beta</span>
-          <h1>Push code.<br />Agents do the rest.</h1>
-          <p class="muted">Optivian deploys your cloud workloads, watches health signals, patches vulnerabilities, and rightsizes spend — all without opening another dashboard.</p>
+        <div class="hero-wrap">
+          <div class="hero-topnav"><span>CI/CD</span><span>Any Cloud</span><span>Kubernetes</span><span>Multi-Tenancy</span><span>AI Agents</span></div>
+          <span class="tag">Run agents, previews, and data services in one deploy mesh</span>
+          <h1>The deployment platform<br/>for serious workloads.</h1>
+          <p class="muted">Ship APIs, workers, databases, and AI services securely. From commit to production and beyond — in your VPC, or ours.</p>
           <div class="hero-actions">
-            <button class="btn primary">Start deploying — free</button>
-            <button class="btn">Watch a 90-sec demo</button>
+            <button class="btn primary">Deploy now</button>
+            <button class="btn">Talk to an engineer</button>
           </div>
-        </div>
-        <div class="terminal">
-          <div class="terminal-head">~/checkout-api • production</div>
-          <pre><span class="green">detect</span>      Detected Node 22 • pnpm
-Dockerfile (multi-stage)
-<span class="blue">agent</span>       reviewing PR #482 • 38 files
-<span class="green">health</span>      27ms p95 check passed
-<span class="yellow">promote</span>     promoted to prod
-Done in 2.1s • rollback armed for 15m</pre>
+          <div class="hero-panels">
+            <div class="hero-panel"><div class="ph">Deployments</div><pre><span class="green">checkout-prod</span>
+region: ap-south-1
+p95: 27ms  |  replicas: 3
+last rollout: 2.1s</pre></div>
+            <div class="hero-panel"><div class="ph">Previews</div><pre>PR #482  preview ready
+PR #483  smoke test passed
+PR #484  rollback simulated
+fleet health: <span class="green">stable</span></pre></div>
+            <div class="hero-panel"><div class="ph">Sandboxes</div><pre>node22 + redis + postgres
+runtime budget auto-tuned
+vuln patch queue: <span class="yellow">running</span>
+agent status: <span class="green">active</span></pre></div>
+          </div>
         </div>
       </section>
 
