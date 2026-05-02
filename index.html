@@ -131,8 +131,16 @@
       .core-ring { width: 340px; height:340px; border-radius:999px; margin: 0 auto; display:grid; place-items:center; border:1px solid #2489a0; box-shadow: 0 0 0 30px rgba(15,53,87,.25), 0 0 0 62px rgba(7,34,59,.23), 0 0 0 96px rgba(7,27,45,.2); }
       .core-inner { width: 150px; height:150px; border-radius:999px; display:grid; place-items:center; background: radial-gradient(circle at 40% 30%, #0c2f4e, #061422); border:1px solid #00c8a8; font-size:46px; color:#6fc9ff; }
 
-      .quotes { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin-top:20px; }
-      .quote { padding: 20px; }
+      .testimonials { display:grid; grid-template-columns: 1fr; gap:16px; margin-top:20px; }
+      .t-card { border:1px solid #24415a; border-radius:10px; overflow:hidden; background:#050b15; display:grid; grid-template-columns: 300px 1fr; }
+      .t-brand { border-right:1px solid #1d334a; background: radial-gradient(circle at 10% 20%, rgba(45,211,191,.16), transparent 40%), #07101e; display:grid; grid-template-rows:1fr 1fr; }
+      .t-logo, .t-product { display:grid; place-items:center; color:#9fb7d4; font-size:44px; letter-spacing:.06em; font-family: "Bricolage Grotesque", sans-serif; }
+      .t-logo { border-bottom:1px solid #1d334a; }
+      .t-body { padding:24px 26px; }
+      .t-badge { display:inline-block; border:1px solid #2b5669; border-radius:999px; padding:8px 12px; color:#a9d3ea; font-size:14px; margin-bottom:14px; }
+      .t-text { font-size:37px; line-height:1.45; color:#d9e5f7; margin:0 0 18px; }
+      .t-name { font-size:32px; color:#f3f8ff; margin:0; }
+      .t-role { color:#96aac2; margin-top:4px; font-size:21px; }
 
       footer { border-top: 1px solid #1b2131; padding: 42px 0; color: #8f97a5; }
       .footer-grid { display:grid; grid-template-columns: 1.2fr repeat(5,1fr); gap: 22px; }
@@ -165,7 +173,12 @@
       @keyframes reveal { from { opacity:0; transform: translateY(16px);} to { opacity:1; transform: translateY(0);} }
       @media (max-width: 1000px) {
         
-        .grid-4, .quotes, .footer-grid, .workflow-grid, .pricing-grid, .flanks-layout { grid-template-columns: 1fr; }
+        .grid-4, .footer-grid, .workflow-grid, .pricing-grid, .flanks-layout { grid-template-columns: 1fr; }
+        .t-card { grid-template-columns: 1fr; }
+        .t-brand { grid-template-rows: auto auto; }
+        .t-text { font-size: 24px; }
+        .t-name { font-size: 24px; }
+        .t-role { font-size: 17px; }
         .core-ring { width:240px; height:240px; box-shadow: 0 0 0 20px rgba(15,53,87,.25), 0 0 0 40px rgba(7,34,59,.23); }
         .flank-title { font-size:32px; }
         .tag-pill { font-size:18px; }
@@ -349,10 +362,31 @@ agent status: <span class="green">active</span></pre></div>
         <div class="container">
           <div class="kicker">In production</div>
           <h2 class="section-title">What teams say after switching.</h2>
-          <div class="quotes">
-            <div class="card quote">“We replaced pager-duty escalations with Optivian. Fewer incidents, faster nights.”</div>
-            <div class="card quote">“Invoice cleanup alone paid for itself. Deploys in seconds are the bonus.”</div>
-            <div class="card quote">“The first PaaS where agents actually do what they claim.”</div>
+          <div class="testimonials">
+            <article class="t-card">
+              <div class="t-brand">
+                <div class="t-logo">SENTRY</div>
+                <div class="t-product">WRITER</div>
+              </div>
+              <div class="t-body">
+                <span class="t-badge">Endorsed by infra veterans</span>
+                <p class="t-text">Optivian helped us stop stitching five tools together for deploys and incident handling. We ship containers and background jobs faster, keep rollbacks safe, and run everything inside our VPC controls.</p>
+                <p class="t-name">Aarav Menon</p>
+                <div class="t-role">VP Platform · FinEdge</div>
+              </div>
+            </article>
+            <article class="t-card">
+              <div class="t-brand">
+                <div class="t-logo">LENDKIT</div>
+                <div class="t-product">ORBIT</div>
+              </div>
+              <div class="t-body">
+                <span class="t-badge">Trusted by scaling engineering teams</span>
+                <p class="t-text">From preview environments to automated healing, Optivian gave our team a calmer on-call life. Deploys are now predictable, cost alerts are proactive, and every PR gets safer before production.</p>
+                <p class="t-name">Priya Kapoor</p>
+                <div class="t-role">Founding Engineer · OrbitPay</div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
